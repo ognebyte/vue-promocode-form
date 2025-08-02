@@ -1,0 +1,24 @@
+:root {
+    --rem-default: 16px;
+    --button-height: 40px;
+    --input-height: 44px;
+
+    --icon-color: #dfdee3;
+
+    --active-color: #107fd1;
+    --error-color: #ff3b30;
+    --modal-backdrop: #11111126;
+
+    --text-color: #1c1c1e;
+    --text-color-0: #ffffff;
+    --text-color-1: #797979;
+    --text-color-2: #77777c;
+    --text-color-3: #adaeb2;
+    --text-color-4: #929299;
+
+    --surface: #05263f;
+    --surface-0: #ffffff;
+    --surface-1: #f8f8fa;
+    --surface-2: #f2f1f6;
+    --surface-3: #f5f5f5;
+}
