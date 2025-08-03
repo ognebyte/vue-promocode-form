@@ -1,13 +1,16 @@
 :root {
     --rem-default: 16px;
+    --tab-height: 34px;
     --button-height: 40px;
     --input-height: 44px;
+    --textarea-height: 90px;
 
     --icon-color: #dfdee3;
-
     --active-color: #107fd1;
     --error-color: #ff3b30;
     --modal-backdrop: #11111126;
+    --stroke-color-1: #ebebf0;
+    --stroke-color-2: #e5e5ea;
 
     --text-color: #1c1c1e;
     --text-color-0: #ffffff;

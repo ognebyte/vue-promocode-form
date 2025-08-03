@@ -15,15 +15,15 @@ const close = () => {
                 <CloseIcon />
             </button>
 
-            <div class="customModalContent" v-if="$slots.header">
+            <div v-if="$slots.header">
                 <slot name="header" />
             </div>
 
-            <div class="customModalContent">
+            <div>
                 <slot name="default" />
             </div>
 
-            <div class="customModalContent" v-if="$slots.footer">
+            <div v-if="$slots.footer">
                 <slot name="footer" />
             </div>
         </div>
@@ -52,12 +52,6 @@ const close = () => {
     border-radius: 1rem;
     background-color: var(--surface-0);
     color: var(--text-color);
-}
-
-.customModalContent {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
 }
 
 .customModalClose {

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { defineProps } from 'vue'
+import CustomInputContainer from './CustomInputContainer.vue'
 
 defineProps<{
     title?: string
@@ -9,28 +10,16 @@ defineProps<{
 </script>
 
 <template>
-    <div class="customInputContainer">
-        <p v-if="title" class="b2">{{ title }}<span v-if="required" class="redAsterisk">*</span></p>
-
+    <CustomInputContainer :title="title" :required="required">
         <label class="customInputLabel">
             <slot name="left"></slot>
-            <input class="customInput" :placeholder="placeholder" />
+            <input class="customInput b2" :placeholder="placeholder" />
             <slot name="right"></slot>
         </label>
-    </div>
+    </CustomInputContainer>
 </template>
 
 <style scoped>
-.customInputContainer {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-}
-
-.redAsterisk {
-    color: var(--error-color);
-}
-
 .customInputLabel {
     display: inline-flex;
     align-items: center;
@@ -43,9 +32,14 @@ defineProps<{
     cursor: text;
 }
 
+.customInputLabel:focus-within {
+    outline: auto;
+}
+
 .customInput {
     flex: 1;
     border: none;
+    outline: none;
     background-color: transparent;
 }
 

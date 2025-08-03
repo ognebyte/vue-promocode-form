@@ -19,12 +19,13 @@ html {
 }
 
 button,
-input {
+input,
+textarea {
     font-family: inherit;
 }
 
-input {
-    outline: none;
+button {
+    cursor: pointer;
 }
 
 input::placeholder {
@@ -40,4 +41,16 @@ input::placeholder {
 .b2 {
     font-weight: 500;
     font-size: 14px;
+}
+
+.c2 {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.divider {
+    width: 100%;
+    height: 1px;
+    background-color: var(--stroke-color-1);
 }
