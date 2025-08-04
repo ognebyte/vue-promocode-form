@@ -9,7 +9,7 @@ const close = () => {
 </script>
 
 <template>
-    <div class="customModalBackdrop" @click.self="close">
+    <div class="customModalBackdrop">
         <div class="customModal">
             <button class="customModalClose" @click="close">
                 <CloseIcon />

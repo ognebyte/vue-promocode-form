@@ -1,16 +1,17 @@
 <script setup lang="ts">
-import { defineProps, defineModel } from 'vue'
+import { useField } from 'vee-validate'
 
-defineProps<{
+const props = defineProps<{
     title?: string
+    name: string
 }>()
 
-const model = defineModel<boolean>()
+const { value } = useField<boolean>(() => props.name)
 </script>
 
 <template>
     <label class="customRadioLabel flex-row gap-5">
-        <input class="customCheckbox b2" type="checkbox" v-model="model" />
+        <input v-model="value" :name="name" class="customCheckbox b2" type="checkbox" />
         <p class="b2">{{ title }}</p>
     </label>
 </template>
@@ -26,6 +27,7 @@ const model = defineModel<boolean>()
 
 .customRadioLabel {
     align-items: center;
+    color: var(--surface);
 }
 
 .customRadioLabel:focus-within {

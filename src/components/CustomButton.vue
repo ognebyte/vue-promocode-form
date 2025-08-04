@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import { defineProps, defineEmits, computed } from 'vue'
+import { computed } from 'vue'
 
 const props = defineProps<{
     variant?: 'primary' | 'secondary'
+    type?: 'submit' | 'reset' | 'button'
     fill?: boolean
+    disabled?: boolean
 }>()
 
 const emit = defineEmits<{
@@ -20,7 +22,7 @@ const buttonClass = computed(() => {
 </script>
 
 <template>
-    <button :class="buttonClass" @click="handleClick" type="button">
+    <button :class="buttonClass" @click="handleClick" :disabled="disabled" :type="type || 'button'">
         <slot>Кнопка</slot>
     </button>
 </template>
@@ -37,6 +39,11 @@ const buttonClass = computed(() => {
 
     font-weight: 600;
     font-size: 14px;
+}
+
+.customButton:disabled {
+    opacity: 0.6;
+    pointer-events: none;
 }
 
 .customButton:active {

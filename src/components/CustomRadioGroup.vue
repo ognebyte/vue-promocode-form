@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { defineProps } from 'vue'
+import { useField } from 'vee-validate'
 
-defineProps<{
+const props = defineProps<{
+    name: string
     title?: string
-    required?: boolean
     items?: {
-        name?: string
+        value?: string
         title?: string
     }[]
 }>()
+
+const { value } = useField<boolean>(() => props.name)
 </script>
 
 <template>
@@ -17,12 +19,8 @@ defineProps<{
             {{ title }}
         </p>
         <div class="flex-column gap-7">
-            <label
-                v-for="(item, index) in items"
-                :key="item.name + '-' + index"
-                class="customRadioLabel flex-row gap-5"
-            >
-                <input class="customRadio b2" :name="item.name" type="radio" />
+            <label v-for="(item, index) in items" :key="name + '-' + index" class="customRadioLabel flex-row gap-5">
+                <input v-model="value" :name="name" :value="item.value" class="customRadio b2" type="radio" />
                 <span class="checkmark" tabindex="0"></span>
                 <p class="b2">{{ item.title }}</p>
             </label>

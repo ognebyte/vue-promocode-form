@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { defineProps, defineEmits } from 'vue'
-
 defineProps<{
     tabs: { name: string }[]
     activeTab: number
