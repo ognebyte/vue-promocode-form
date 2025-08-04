@@ -9,6 +9,7 @@ html {
     font-family: Inter;
     line-height: 18px;
     letter-spacing: 0px;
+    color: var(--text-color);
 }
 
 #app {
@@ -22,6 +23,7 @@ button,
 input,
 textarea {
     font-family: inherit;
+    color: inherit;
 }
 
 button {

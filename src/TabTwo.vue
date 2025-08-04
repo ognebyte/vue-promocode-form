@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import PromocodeDeadline from './PromocodeDeadline.vue'
-import CustomInput from './components/CustomInput.vue'
-import CustomRadio from './components/CustomRadio.vue'
+import CustomInputField from './components/CustomInputField.vue'
+import CustomRadioGroup from './components/CustomRadioGroup.vue'
 
 const radio = [
     {
+        name: 'promocode-receive',
         title: 'Создать промокод без отправки',
     },
     {
+        name: 'promocode-receive',
         title: 'Отправить промокод всем пользователям',
     },
 ]
@@ -19,9 +21,9 @@ const radio = [
 
         <div class="divider"></div>
 
-        <CustomInput title="Введите лимит активаций (шт.)" placeholder="1000" required />
+        <CustomInputField title="Введите лимит активаций (шт.)" placeholder="1000" required />
 
-        <CustomRadio title="Настроить получение промокода" :items="radio" />
+        <CustomRadioGroup title="Настроить получение промокода" :items="radio" />
     </div>
 </template>
 

@@ -5,6 +5,7 @@ defineProps<{
     title?: string
     required?: boolean
     items?: {
+        name?: string
         title?: string
     }[]
 }>()
@@ -16,8 +17,13 @@ defineProps<{
             {{ title }}
         </p>
         <div class="flex-column gap-7">
-            <label v-for="(item, index) in items" :key="'radio' + index" class="customRadioLabel flex-row gap-5">
-                <input class="customRadio b2" name="radio" type="radio" />
+            <label
+                v-for="(item, index) in items"
+                :key="item.name + '-' + index"
+                class="customRadioLabel flex-row gap-5"
+            >
+                <input class="customRadio b2" :name="item.name" type="radio" />
+                <span class="checkmark" tabindex="0"></span>
                 <p class="b2">{{ item.title }}</p>
             </label>
         </div>
@@ -43,6 +49,25 @@ defineProps<{
 }
 
 .customRadio {
+    display: none;
+}
+
+.checkmark {
+    width: var(--checkmark-size);
+    height: var(--checkmark-size);
+    border-radius: 50%;
+    border: 1.5px solid var(--stroke-color-3);
     outline: none;
+    transition: 0.1s ease;
+    transition-property: border, opacity;
+}
+
+.customRadio:checked + .checkmark {
+    border-width: 5px;
+    border-color: var(--active-color);
+}
+
+.customRadio:active + .checkmark {
+    opacity: 0.6;
 }
 </style>

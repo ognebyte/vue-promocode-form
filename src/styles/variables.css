@@ -4,6 +4,7 @@
     --button-height: 40px;
     --input-height: 44px;
     --textarea-height: 90px;
+    --checkmark-size: 20px;
 
     --icon-color: #dfdee3;
     --active-color: #107fd1;
@@ -11,6 +12,7 @@
     --modal-backdrop: #11111126;
     --stroke-color-1: #ebebf0;
     --stroke-color-2: #e5e5ea;
+    --stroke-color-3: #c7c7cc;
 
     --text-color: #1c1c1e;
     --text-color-0: #ffffff;

@@ -13,7 +13,7 @@ defineProps<{
             <CalendarIcon />
             <div>
                 <p class="c2">Дата</p>
-                <input class="customDatePicker b2" type="date" />
+                <input class="customDatePicker b2" type="date" max="9999-12-31" />
             </div>
         </label>
         <label class="customDatePickerLabel">
@@ -48,19 +48,20 @@ defineProps<{
 }
 
 .customDatePicker {
-    flex: 1;
     border: none;
     outline: none;
     background-color: transparent;
+    color: var(--text-color);
 }
 
 .customDatePicker::-webkit-calendar-picker-indicator {
-    display: none;
+    position: absolute;
+    display: block;
     top: 0;
     right: 0;
     height: 100%;
     width: 100%;
-    position: absolute;
     background: transparent;
+    outline: none;
 }
 </style>

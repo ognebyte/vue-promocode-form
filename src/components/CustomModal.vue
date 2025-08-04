@@ -51,7 +51,6 @@ const close = () => {
     padding: 1.5rem;
     border-radius: 1rem;
     background-color: var(--surface-0);
-    color: var(--text-color);
 }
 
 .customModalClose {
