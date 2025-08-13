@@ -36,12 +36,13 @@ function openDatePicker() {
                     class="customDateTimePickerInput b2"
                     type="date"
                     max="9999-12-31"
+                    width="86px"
                 />
             </div>
         </label>
 
         <label class="customDateTimePickerLabel" :class="{ error: hasErrorTime }">
-            <input v-model="modelTime" :name="nameTime" class="customDateTimePickerInput b2" type="time" />
+            <input v-model="modelTime" :name="nameTime" class="customDateTimePickerInput b2" type="time" width="44px" />
         </label>
     </div>
 </template>

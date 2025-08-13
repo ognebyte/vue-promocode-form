@@ -45,6 +45,9 @@ const handleClick = (index: number) => {
     background-color: transparent;
     color: var(--text-color-3);
     transition: 0.2s ease color;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .customTab:hover,

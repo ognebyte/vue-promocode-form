@@ -15,17 +15,9 @@ const close = () => {
                 <CloseIcon />
             </button>
 
-            <div v-if="$slots.header">
-                <slot name="header" />
-            </div>
-
-            <div>
-                <slot name="default" />
-            </div>
-
-            <div v-if="$slots.footer">
-                <slot name="footer" />
-            </div>
+            <slot v-if="$slots.header" name="header" />
+            <slot name="default" />
+            <slot v-if="$slots.footer" name="footer" />
         </div>
     </div>
 </template>
@@ -35,10 +27,10 @@ const close = () => {
     position: fixed;
     inset: 0;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    padding: 1.5rem;
     background-color: var(--modal-backdrop);
     z-index: 10;
+    overflow: auto;
 }
 
 .customModal {
@@ -48,6 +40,7 @@ const close = () => {
     gap: 1.25rem;
     width: 100%;
     max-width: 516px;
+    margin: auto;
     padding: 1.5rem;
     border-radius: 1rem;
     background-color: var(--surface-0);
@@ -67,5 +60,20 @@ const close = () => {
 
 .customModalClose:hover {
     color: var(--active-color);
+}
+
+@media (width < 600px) {
+    .customModalBackdrop {
+        padding: 0;
+    }
+
+    .customModal {
+        max-width: 100%;
+        min-height: 100vh;
+        height: max-content;
+        margin: 0;
+        padding: 1rem;
+        border-radius: 0;
+    }
 }
 </style>

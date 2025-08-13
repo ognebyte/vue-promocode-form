@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref, computed, nextTick } from 'vue'
+import { useForm } from 'vee-validate'
+
+import { validationSchema } from './utils/schemas'
+import { schemasInitialValues } from './utils/schemasInitialValue'
+
 import CustomButton from './components/CustomButton.vue'
 import CustomModal from './components/CustomModal.vue'
 import CustomTabs from './components/CustomTabs.vue'
 import TabOne from './TabOne.vue'
 import TabTwo from './TabTwo.vue'
-import { validationSchema } from './utils/schemas'
-import { useForm } from 'vee-validate'
 
 const isModalOpen = ref(false)
 const currentTab = ref(0)
@@ -16,9 +19,10 @@ const currentSchema = computed(() => {
     return validationSchema[currentTab.value]
 })
 
-const { validate, handleSubmit, handleReset } = useForm({
+const { validate, handleSubmit, resetForm } = useForm({
     validationSchema: currentSchema,
     keepValuesOnUnmount: true,
+    initialValues: schemasInitialValues,
 })
 
 const tabs = [
@@ -63,15 +67,17 @@ const submitForm = handleSubmit(async (formValues) => {
 })
 
 function openModal() {
+    resetForm()
     isModalOpen.value = true
     currentTab.value = 0
-    handleReset()
+    document.body.style.overflow = 'hidden'
 }
 
 function closeModal() {
+    resetForm()
     isModalOpen.value = false
     currentTab.value = 0
-    handleReset()
+    document.body.style.overflow = ''
 }
 
 const isFirstTab = computed(() => currentTab.value === 0)
@@ -123,13 +129,23 @@ main {
     height: 100%;
 }
 
+.form {
+    min-height: 300px;
+}
+
 .modalActions {
     display: flex;
     width: 100%;
     gap: 0.75rem;
 }
 
-.form {
-    min-height: 300px;
+@media (width < 600px) {
+    .form {
+        flex: 1;
+    }
+
+    .modalActions {
+        margin-top: auto;
+    }
 }
 </style>

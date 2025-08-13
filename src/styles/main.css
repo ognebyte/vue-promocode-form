@@ -24,6 +24,7 @@ input,
 textarea {
     font-family: inherit;
     color: inherit;
+    outline-color: initial;
 }
 
 button {

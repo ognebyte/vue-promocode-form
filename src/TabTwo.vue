@@ -48,7 +48,7 @@ defineExpose({ formData })
         <CustomInputContainer class="gap-7" title="Срок действия промокода" required>
             <div class="flex-column gap-2">
                 <div class="flex-column gap-5">
-                    <div class="flex-row gap-12">
+                    <div class="promocodeDates flex-row gap-7">
                         <div class="promocodeDate">
                             <p class="titleDate b2">Дата начала</p>
                             <CustomDateTimePicker
@@ -97,6 +97,10 @@ defineExpose({ formData })
 </template>
 
 <style scoped>
+.promocodeDates {
+    flex-wrap: wrap;
+}
+
 .promocodeDate {
     flex: 1;
     display: flex;
